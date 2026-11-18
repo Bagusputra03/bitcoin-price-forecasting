@@ -1,0 +1,22 @@
+from research_engine.config import (
+    RESEARCH_SYMBOL, RESEARCH_START, RESEARCH_END, RESEARCH_INTERVAL,
+    SCENARIOS, ELM_BASELINE_NH, ELM_BASELINE_C, WFV_FOLDS,
+    PSO_PARTICLES, PSO_ITERATIONS, PSO_VAL_RATIO, ELM_FIXED_SEED,
+    RESEARCH_CHAMPION_SCENARIO, CHAMPION_PSO_SEED,
+)
+
+
+def test_final_research_contract():
+    assert (RESEARCH_SYMBOL, RESEARCH_START, RESEARCH_END, RESEARCH_INTERVAL) == (
+        'BTC-USD', '2021-01-01', '2026-04-01', '1d'
+    )
+    assert ELM_BASELINE_NH == 10
+    assert ELM_BASELINE_C == 1e2
+    assert WFV_FOLDS == 5
+    assert PSO_PARTICLES == 20
+    assert PSO_ITERATIONS == 50
+    assert PSO_VAL_RATIO == 0.25
+    assert ELM_FIXED_SEED == 42
+    assert CHAMPION_PSO_SEED == 99
+    assert RESEARCH_CHAMPION_SCENARIO == 'S4 (Tren SMA)'
+    assert SCENARIOS['S4 (Tren SMA)'] == ['Close','Lag_1','Lag_2','SMA_10','SMA_30']
